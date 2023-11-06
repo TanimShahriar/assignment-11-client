@@ -13,7 +13,8 @@ const TakeAssignment = () => {
     const form = e.target;
     const pdf = form.pdf.value;
     const note = form.note.value;
-    const tanim = { pdf, note }
+    const status = "Pending";
+    const tanim = { pdf, note, status }
     console.log(tanim)
 
 

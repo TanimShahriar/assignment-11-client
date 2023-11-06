@@ -21,10 +21,11 @@ const CreateAssignment = () => {
     const imgUrl = form.url.value;
     const difficultyLevel = form.level.value;
     const dueDate = form.date.value;
+    const status = "";
 
 
 
-    const createdAssignment = { name, description, marks, imgUrl, dueDate, difficultyLevel, displayName, email };
+    const createdAssignment = { name, description, marks, imgUrl, dueDate, difficultyLevel, displayName, email, status };
     console.log(createdAssignment);
 
     //send data to the server
