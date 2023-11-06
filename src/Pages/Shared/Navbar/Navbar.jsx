@@ -18,11 +18,11 @@ const Navbar = () => {
   const navLinks = <>
 
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/'>Home</NavLink>
-    <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/about'>Assignments</NavLink>
+    <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/assignments'>Assignments</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/createAssignment'>Create Assignment</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/contact'>My Assignments</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/contact'>Submitted Assignments</NavLink>
-    <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/signUp'>Sign Up</NavLink>
+    {!user && <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/signUp'>Sign Up</NavLink>}
 
 
 

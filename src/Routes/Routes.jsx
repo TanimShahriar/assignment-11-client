@@ -6,6 +6,10 @@ import Home from "../Pages/Home/Home/Home";
 import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
 import CreateAssignment from "../Pages/CreateAssignment/CreateAssignment";
+import PrivateRoutes from "./PrivateRoutes";
+import Assignments from "../Pages/Assignments/Assignments";
+import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
+
 
 
 
@@ -29,8 +33,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/createAssignment",
-        element: <CreateAssignment></CreateAssignment>
+        element: <PrivateRoutes><CreateAssignment></CreateAssignment></PrivateRoutes>
       },
+      {
+        path: "/assignments",
+        element: <Assignments></Assignments>,
+        loader: () => fetch("http://localhost:5000/assignment")
+      },
+      {
+        path: "/assignments/:_id",
+        element: <AssignmentDetails></AssignmentDetails>,
+        loader: () => fetch("http://localhost:5000/assignment")
+      },
+
 
 
     ]

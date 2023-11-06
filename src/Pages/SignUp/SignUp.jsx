@@ -3,10 +3,9 @@ import { useContext } from "react";
 import { AiFillFacebook, AiFillGoogleCircle, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-
-
 
 
   const { createUser } = useContext(AuthContext);
@@ -16,6 +15,7 @@ const SignUp = () => {
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photo = form.photo.value;
     const password = form.password.value;
     console.log(name, email, password)
 
@@ -24,6 +24,10 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
       })
 
 
@@ -49,6 +53,12 @@ const SignUp = () => {
                 <span className="label-text">Name</span>
               </label>
               <input type="text" placeholder="Your name" name="name" className="input input-bordered" required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo</span>
+              </label>
+              <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered" required />
             </div>
             <div className="form-control">
               <label className="label">

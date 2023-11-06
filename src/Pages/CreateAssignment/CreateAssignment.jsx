@@ -1,12 +1,18 @@
+
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useContext } from "react";
 
 
 
 const CreateAssignment = () => {
+  const { user } = useContext(AuthContext)
+  const { displayName, email } = user || "";
+
   const handleAddAssignment = event => {
     event.preventDefault();
 
-
+    console.log(user.email)
     const form = event.target;
 
     const title = form.title.value;
@@ -17,11 +23,12 @@ const CreateAssignment = () => {
     const dueDate = form.date.value;
 
 
-    const createdAssignment = { name: title, description, marks, imgUrl, dueDate, difficultyLevel };
+
+    const createdAssignment = { name: title, description, marks, imgUrl, dueDate, difficultyLevel, displayName, email };
     console.log(createdAssignment);
 
     //send data to the server
-    fetch("", {
+    fetch("http://localhost:5000/assignment", {
       method: "POST",
       headers: {
         "content-type": "application/json"

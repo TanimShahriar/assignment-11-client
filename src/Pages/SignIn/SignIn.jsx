@@ -6,8 +6,11 @@ import axios from "axios";
 
 const SignIn = () => {
   const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+
   const location = useLocation();
+  console.log("Location in the login page", location);
+  const navigate = useNavigate();
+
 
   const handleSignIn = event => {
     event.preventDefault();
@@ -19,23 +22,18 @@ const SignIn = () => {
     console.log(email, password)
     signIn(email, password)
       .then(result => {
-        const loggedInUser = result.user;
-        console.log(loggedInUser);
-        const user = { email }
+        console.log(result.user);
+        // setDisplayUser(notify());
 
+        navigate(location?.state ? location.state : '/');
 
-        //get access token
-        axios.post("http://localhost:5000/jwt", user, {
-          withCredentials: true
-        })
-          .then(res => {
-            console.log(res.data)
-            if (res.data.success) {
-              navigate(location?.state ? location?.state : "/")
-            }
-          })
+        if (result.user.emailVerified) {
+          // setSuccess("User logged in successfully");
+        }
 
-
+        // else {
+        //   alert("Please verify your email address");
+        // }
       })
       .catch(error => console.log(error));
   }
