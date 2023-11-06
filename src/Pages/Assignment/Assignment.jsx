@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const Assignment = ({ assignment }) => {
-  const { _id, name, description, marks, imgUrl, difficultyLevel } = assignment;
+  const { _id, name, imgUrl, difficultyLevel } = assignment;
   return (
     <div className="rounded-lg bg-[#4287f5] p-2  shadow-lg ">
       <img className="w-full h-44 lg:h-[270px] rounded-t-lg " src={imgUrl} alt="Assignment" />
