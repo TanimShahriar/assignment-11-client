@@ -15,7 +15,7 @@ const CreateAssignment = () => {
     console.log(user.email)
     const form = event.target;
 
-    const title = form.title.value;
+    const name = form.name.value;
     const description = form.description.value;
     const marks = form.marks.value;
     const imgUrl = form.url.value;
@@ -24,7 +24,7 @@ const CreateAssignment = () => {
 
 
 
-    const createdAssignment = { name: title, description, marks, imgUrl, dueDate, difficultyLevel, displayName, email };
+    const createdAssignment = { name, description, marks, imgUrl, dueDate, difficultyLevel, displayName, email };
     console.log(createdAssignment);
 
     //send data to the server
@@ -67,7 +67,7 @@ const CreateAssignment = () => {
               </label>
               <label className="">
 
-                <input type="text" placeholder="Title" name="title" className="input input-bordered w-72 lg:w-full" />
+                <input type="text" placeholder="Title" name="name" className="input input-bordered w-72 lg:w-full" />
               </label>
             </div>
             <div className="form-control md:w-1/2">

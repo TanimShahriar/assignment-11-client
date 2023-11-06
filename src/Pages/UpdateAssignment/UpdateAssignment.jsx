@@ -13,7 +13,7 @@ const UpdateAssignment = () => {
 
     const form = event.target;
 
-    const name = form.title.value;
+    const name = form.name.value;
     const description = form.description.value;
     const marks = form.marks.value;
     const imgUrl = form.url.value;

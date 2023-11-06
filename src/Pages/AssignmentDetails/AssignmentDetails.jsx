@@ -20,7 +20,7 @@ const AssignmentDetails = () => {
 
           <Link to='/assignments'> <button className="rounded-md flex items-center gap-3 px-1 lg:px-6 py-1 lg:py-2 bg-[#3361ac] text-white font-medium text-xl"> <BsFillArrowLeftSquareFill className="text-xl"></BsFillArrowLeftSquareFill>Back to Assignments</button></Link>
 
-          <Link to='/pricing'> <button className="rounded-md flex items-center gap-3 px-1 lg:px-6 py-1 lg:py-2 bg-[#3361ac] text-white font-medium text-xl">Choose Plans <BsFillArrowRightSquareFill className="text-xl"></BsFillArrowRightSquareFill></button></Link>
+          <Link to={`/takeAssignment/${_id}`}> <button className="rounded-md flex items-center gap-3 px-1 lg:px-6 py-1 lg:py-2 bg-[#3361ac] text-white font-medium text-xl">Take This Assignment <BsFillArrowRightSquareFill className="text-xl"></BsFillArrowRightSquareFill></button></Link>
 
         </div>
       </div>
