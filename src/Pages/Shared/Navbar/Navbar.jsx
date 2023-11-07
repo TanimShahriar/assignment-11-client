@@ -1,18 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
-import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { CgProfile } from "react-icons/cg";
 
 
 const Navbar = () => {
-  const { user, signOutt } = useContext(AuthContext);
+  const { user, setUser, signOutt } = useContext(AuthContext);
 
   const handleSignOut = () => {
     signOutt()
-      .then(() => {
-
+      .then(result => {
+        console.log(result.user);
+        setUser(result.user);
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        console.log(error.message);
+      })
   }
 
   const navLinks = <>
@@ -20,7 +24,7 @@ const Navbar = () => {
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/'>Home</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/assignments'>Assignments</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/createAssignment'>Create Assignment</NavLink>
-    <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/contact'>My Assignments</NavLink>
+    <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/myAssignments'>My Assignments</NavLink>
     <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/submittedAssignment'>Submitted Assignments</NavLink>
     {!user && <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/signUp'>Sign Up</NavLink>}
 
@@ -46,16 +50,32 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end gap-2 lg:gap-4">
-        <Link className="text-2xl"><a> <AiOutlineShoppingCart></AiOutlineShoppingCart></a></Link>
+      <div className="navbar-end gap-3">
         <Link className="text-2xl"><a><AiOutlineSearch></AiOutlineSearch></a></Link>
+        {
+          user && <div className="flex items-center gap-2 px-1  bg-blue-400 rounded-md">
+            <img className="h-10 w-10 rounded-full" src={user.photoURL} alt="" />
+            <h2 className="text-slate-100 text-center text-sm lg:text-lg font-medium lg:font-medium">{user.displayName}</h2>
+          </div>
 
-        {user?.email ?
 
-          <button className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" onClick={handleSignOut}>Sign Out</button>
-          :
-          <NavLink className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]" to='/signIn'>Sign In</NavLink>
         }
+        {
+          user ?
+            <div className="flex items-center gap-1">
+
+
+              <button onClick={handleSignOut} className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]">Sign out</button>
+
+            </div>
+            :
+            <Link to='/signin'>
+              <button className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]">Sign in</button>
+            </Link>
+        }
+
+
+
 
       </div>
     </div>
@@ -63,5 +83,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//

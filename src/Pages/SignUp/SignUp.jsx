@@ -1,14 +1,17 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AiFillFacebook, AiFillGoogleCircle, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
+  const [signUpError, setSignUpError] = useState('');
+  const [success, setSuccess] = useState('');
 
-
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signOutt } = useContext(AuthContext);
 
   const handleSignUp = event => {
     event.preventDefault();
@@ -20,10 +23,35 @@ const SignUp = () => {
     console.log(name, email, password)
 
 
+    setSignUpError('');
+    setSuccess('');
+
+    if (password.length < 6) {
+      setSignUpError("Password should be at least six character");
+      return;
+    }
+
+    else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
+      setSignUpError("At least six characters long,  Contains at least one uppercase letter, Allows special characters")
+      return;
+    }
+
+    const notify = () => {
+      toast("User registration successful")
+    }
+
+
     //create User
     createUser(email, password)
       .then(result => {
         console.log(result.user);
+        setSuccess(notify());
+
+        signOutt(email, password)
+          .then()
+          .catch()
+
+
         updateProfile(result.user, {
           displayName: name,
           photoURL: photo,
@@ -33,7 +61,7 @@ const SignUp = () => {
 
       .catch(error => {
         console.log(error.message);
-
+        setSignUpError(error.message);
       })
 
   }
@@ -78,15 +106,27 @@ const SignUp = () => {
             </div>
 
           </form>
-          <p className="text-center font-medium my-2">Or Sign Up With</p>
-          <div className="flex justify-center gap-3 ">
-            <AiFillFacebook className="cursor-pointer text-3xl text-blue-700 rounded-full"></AiFillFacebook>
-            <AiFillGoogleCircle className="cursor-pointer text-3xl text-blue-700 rounded-full"></AiFillGoogleCircle>
-            <AiFillLinkedin className="cursor-pointer text-3xl text-blue-700 rounded-full"></AiFillLinkedin>
-          </div>
+
+          {
+            success &&
+            <div>
+              <h2 className="text-black mt-2 font-semibold">{success}</h2>
+            </div>
+          }
+
+          {
+            signUpError &&
+            <div>
+              <h2 className="text-red-700 font-semibold">{signUpError}</h2>
+            </div>
+
+          }
+
+
           <Link to="/signIn"> <p className="text-center mt-2">Already have an account? <span className="font-semibold text-[#4287f5]">Sign In</span></p></Link>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

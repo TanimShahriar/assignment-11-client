@@ -7,8 +7,10 @@ const SubmittedAssignment = () => {
   const submittedAssignment = useLoaderData();
   console.log(submittedAssignment);
 
+
+
   return (
-    <div>
+    <div className="">
 
       <div className='grid lg:grid-cols-3 p-1 lg:p-2  gap-5 container mx-auto my-5 '>
         {

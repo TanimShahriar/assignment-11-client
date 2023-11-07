@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const TakeAssignment = () => {
@@ -8,13 +10,21 @@ const TakeAssignment = () => {
   // const details = assignmentDetails.find(details => details._id == _id);
   console.log(_id);
 
+  const { user } = useContext(AuthContext);
+  console.log(user)
+
+  const { email } = user || "";
+
   const handleTakeAssignment = e => {
     e.preventDefault();
     const form = e.target;
+    const examineeName = user.displayName;
+    const takeAssignEmail = user.email;
+
     const pdf = form.pdf.value;
     const note = form.note.value;
     const status = "Pending";
-    const tanim = { pdf, note, status }
+    const tanim = { examineeName, pdf, note, status, takeAssignEmail }
     console.log(tanim)
 
 
@@ -53,6 +63,15 @@ const TakeAssignment = () => {
       <form className="p-4 shadow-lg border rounded-t-md" onSubmit={handleTakeAssignment}>
 
         <div className="md:flex gap-5 mb-5">
+          {/* <div className="form-control w-1/2">
+            <label className="label">
+              <span className="label-text">Examinee Name</span>
+            </label>
+            <label className="">
+
+              <input type="text" defaultValue={takeAssignment.examineeName} name="examineeName" className="input input-bordered w-72 lg:w-full" />
+            </label>
+          </div> */}
           <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text">PDF</span>

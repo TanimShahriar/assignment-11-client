@@ -9,6 +9,7 @@ const CreateAssignment = () => {
   const { user } = useContext(AuthContext)
   const { displayName, email } = user || "";
 
+
   const handleAddAssignment = event => {
     event.preventDefault();
 
@@ -107,11 +108,22 @@ const CreateAssignment = () => {
               <label className="label">
                 <span className="label-text">Difficulty Level</span>
               </label>
-              <label className="">
+              {/* <label className="">
 
                 <input type="text" placeholder="Difficulty Level" name="level" className="input input-bordered w-72 lg:w-full" />
-              </label>
+              </label>  */}
+
+              <select type="text" placeholder="Difficulty Level" name="level" className="input input-bordered w-72 lg:w-full" >
+                <option>All</option>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+
             </div>
+
+
+
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Date</span>
@@ -134,3 +146,5 @@ const CreateAssignment = () => {
 };
 
 export default CreateAssignment;
+
+// value={selects} onChange={e => setSelects(e.target.value)}
