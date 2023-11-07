@@ -12,6 +12,7 @@ import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
 import UpdateAssignment from "../Pages/UpdateAssignment/UpdateAssignment";
 import TakeAssignment from "../Pages/TakeAssignment/TakeAssignment";
 import SubmittedAssignment from "../Pages/SubmittedAssignment/SubmittedAssignment";
+import GiveMarks from "../Pages/GiveMarks/GiveMarks";
 
 
 
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
       {
         path: "/submittedAssignment",
         element: <SubmittedAssignment></SubmittedAssignment>,
+        loader: () => fetch("http://localhost:5000/assignment")
+      },
+      {
+        path: "/giveMarks/:_id",
+        element: <GiveMarks></GiveMarks>,
         loader: () => fetch("http://localhost:5000/assignment")
       },
 
