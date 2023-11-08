@@ -14,6 +14,7 @@ import TakeAssignment from "../Pages/TakeAssignment/TakeAssignment";
 import SubmittedAssignment from "../Pages/SubmittedAssignment/SubmittedAssignment";
 import GiveMarks from "../Pages/GiveMarks/GiveMarks";
 import MyAssignments from "../Pages/MyAssignments/MyAssignments";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
