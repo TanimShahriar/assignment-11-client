@@ -2,7 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { CgProfile } from "react-icons/cg";
+import { MdOutlineLogout } from "react-icons/md";
+
 
 
 const Navbar = () => {
@@ -50,14 +51,27 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
+
       <div className="navbar-end gap-3">
+
+        <input type="checkbox" className="toggle toggle-primary" checked />
+
         <Link className="text-2xl"><a><AiOutlineSearch></AiOutlineSearch></a></Link>
         {
-          user && <div className="flex items-center gap-2 px-1  bg-blue-400 rounded-md">
-            <img className="h-10 w-10 rounded-full" src={user.photoURL} alt="" />
-            <h2 className="text-slate-100 text-center text-sm lg:text-lg font-medium lg:font-medium">{user.displayName}</h2>
-          </div>
+          user && <div className="dropdown  dropdown-end items-center gap-2 px-1 b  cursor-pointer rounded-md">
+            <button className="" tabIndex={0}><img className="h-11 w-11 rounded-full " src={user.photoURL} alt="" /></button>
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-blue-100 rounded-box w-52 ">
+              <button className="">{user.displayName}</button>
+              <div className="mt-1 flex items-center justify-center gap-1 border-t border-white">
+                <button onClick={handleSignOut} >  Sign out</button>
+                <MdOutlineLogout></MdOutlineLogout>
+              </div>
 
+
+
+            </ul>
+          </div>
+          // <h2 className="text-slate-100 text-center text-sm lg:text-lg font-medium lg:font-medium">{user.displayName}</h2>
 
         }
         {
@@ -65,7 +79,7 @@ const Navbar = () => {
             <div className="flex items-center gap-1">
 
 
-              <button onClick={handleSignOut} className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]">Sign out</button>
+              {/* <button onClick={handleSignOut} className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]">Sign out</button> */}
 
             </div>
             :
@@ -73,6 +87,7 @@ const Navbar = () => {
               <button className="focus:bg-[#4287f5] px-3 py-1 text-lg  rounded-md focus:text-white  lg:border btn-outline mr-2 duration-300 border-[#4287f5] text-[#4287f5]">Sign in</button>
             </Link>
         }
+
 
 
 

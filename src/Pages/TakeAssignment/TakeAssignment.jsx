@@ -1,19 +1,20 @@
 import { useContext } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 
 
 const TakeAssignment = () => {
   const takeAssignment = useLoaderData();
-  const { _id } = useParams();
-  // const details = assignmentDetails.find(details => details._id == _id);
-  console.log(_id);
+  // const { _id } = useParams();
+  // const details = takeAssignment.find(details => details._id == _id);
+  const { name, description, marks, imgUrl, dueDate, difficultyLevel } = takeAssignment;
+
 
   const { user } = useContext(AuthContext);
   console.log(user)
 
-  const { email } = user || "";
+
 
   const handleTakeAssignment = e => {
     e.preventDefault();
@@ -24,13 +25,14 @@ const TakeAssignment = () => {
     const pdf = form.pdf.value;
     const note = form.note.value;
     const status = "Pending";
-    const tanim = { examineeName, pdf, note, status, takeAssignEmail }
+    const tanim = { examineeName, pdf, note, status, takeAssignEmail, name, description, marks, imgUrl, dueDate, difficultyLevel }
     console.log(tanim)
 
 
-    //send data to the server
-    fetch(`http://localhost:5000/news/${_id}`, {
-      method: "PUT",
+
+
+    fetch("http://localhost:5000/report", {
+      method: "POST",
       headers: {
         "content-type": "application/json"
       },
@@ -39,10 +41,10 @@ const TakeAssignment = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if (data.modifiedCount > 0) {
+        if (data.insertedId) {
           Swal.fire({
             title: 'Success!',
-            text: 'Assignment updated successfully',
+            text: 'Assignment submitted complete',
             icon: 'success',
             confirmButtonText: 'Cool'
           })
@@ -50,6 +52,7 @@ const TakeAssignment = () => {
       })
 
   }
+
 
 
 

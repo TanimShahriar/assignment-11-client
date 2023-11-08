@@ -8,12 +8,11 @@ const GiveMarks = () => {
   const giveMarks = useLoaderData();
   const { _id } = useParams();
   const details = giveMarks.find(details => details._id == _id);
-  console.log(details);
-  console.log(giveMarks);
+
 
   const { user } = useContext(AuthContext)
 
-  const { email } = user || "";
+
 
 
   const handleGiveMarks = e => {
@@ -22,14 +21,13 @@ const GiveMarks = () => {
     const obtainedMarks = form.obtainedMarks.value;
     const feedback = form.feedback.value;
     const status = "Complete";
-    const examineeName = user.displayName;
     const giveMarksEmail = user.email;
-    const giveThemMarks = { obtainedMarks, feedback, status, email, examineeName, giveMarksEmail }
+    const giveThemMarks = { obtainedMarks, feedback, status, giveMarksEmail }
     console.log(giveThemMarks);
 
 
     //send data to the server
-    fetch(`http://localhost:5000/marks/${_id}`, {
+    fetch(`http://localhost:5000/report/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json"
