@@ -1,8 +1,11 @@
-# React + Vite
+## Online Study Group
+#### Live link: 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Project features:
++ Created a form page so that user can create assignment through input field. Several types of fields are added.
++ Used CRUD operation and mangoDB so that user can get, post, update and delete data. Express js used in the backend as well.
++ Assignments category has been implemented based on Easy, Medium and Hard. Anyone can see all assignment. Also they can filter assignment.
++ User can see assignment details by logging in and can take assignments. In the take assignment page user can submit their working pdf file and some notes.
++ After submitting assignment any logged in user can give marks to the examminee based on they submitted pdf file.
++ User can see their own assignment in the My assignment page also assignment data who has created only he can delete the assignment. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
