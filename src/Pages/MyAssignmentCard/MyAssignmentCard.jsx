@@ -1,7 +1,7 @@
 
 
 const MyAssignmentCard = ({ assignment }) => {
-  const { _id, name, imgUrl, difficultyLevel, email } = assignment;
+  const { _id, name, imgUrl, difficultyLevel, email, createEmail } = assignment;
 
   return (
     <div className="rounded-lg bg-[#68f37f] p-2  shadow-lg drop-shadow-md shadow-current  h-auto  hover:shadow-lg hover:transform hover:scale-105 duration-500 ease-in-out ">

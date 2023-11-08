@@ -15,6 +15,7 @@ import SubmittedAssignment from "../Pages/SubmittedAssignment/SubmittedAssignmen
 import GiveMarks from "../Pages/GiveMarks/GiveMarks";
 import MyAssignments from "../Pages/MyAssignments/MyAssignments";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PdfComponent from "../Pages/PdfComponent/PdfComponent";
 
 
 
@@ -78,6 +79,11 @@ const router = createBrowserRouter([
         path: "/myAssignments",
         element: <PrivateRoutes> <MyAssignments></MyAssignments></PrivateRoutes>,
         loader: () => fetch("http://localhost:5000/assignment")
+      },
+      {
+        path: "/pdfComponent",
+        element: <PdfComponent></PdfComponent>,
+        // loader: () => fetch("http://localhost:5000/report")
       },
 
 

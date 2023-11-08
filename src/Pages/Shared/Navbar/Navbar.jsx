@@ -6,6 +6,8 @@ import { MdOutlineLogout } from "react-icons/md";
 
 
 
+
+
 const Navbar = () => {
   const { user, setUser, signOutt } = useContext(AuthContext);
 
@@ -54,12 +56,12 @@ const Navbar = () => {
 
       <div className="navbar-end gap-3">
 
-        <input type="checkbox" className="toggle toggle-primary" checked />
 
-        <Link className="text-2xl"><a><AiOutlineSearch></AiOutlineSearch></a></Link>
+        <input className="bg-slate-100 p-2 rounded-md" placeholder="Search" type="search" name="" id="" />
+
         {
-          user && <div className="dropdown  dropdown-end items-center gap-2 px-1 b  cursor-pointer rounded-md">
-            <button className="" tabIndex={0}><img className="h-11 w-11 rounded-full " src={user.photoURL} alt="" /></button>
+          user && <div className="dropdown  dropdown-end items-center gap-2 px-1  cursor-pointer rounded-md">
+            <button className="" tabIndex={0}><img className="h-11 w-11 rounded-full  " src={user.photoURL} alt="" /></button>
             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-blue-100 rounded-box w-52 ">
               <button className="">{user.displayName}</button>
               <div className="mt-1 flex items-center justify-center gap-1 border-t border-white">

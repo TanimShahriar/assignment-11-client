@@ -15,7 +15,7 @@ const MyAssignments = () => {
 
       <div className='grid lg:grid-cols-3 p-1 lg:p-2  gap-5 container mx-auto my-5 '>
         {
-          myAssignments.filter(card => { return card.email == email }).map(assignment => <MyAssignmentCard key={assignment._id} assignment={assignment}></MyAssignmentCard>)
+          myAssignments.filter(card => { return card.createEmail == email }).map(assignment => <MyAssignmentCard key={assignment._id} assignment={assignment}></MyAssignmentCard>)
         }
       </div>
     </div>

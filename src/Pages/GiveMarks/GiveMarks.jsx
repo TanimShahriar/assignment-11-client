@@ -2,6 +2,14 @@ import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
+import { pdfjs } from 'react-pdf';
+import PdfComponent from "../PdfComponent/PdfComponent";
+
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url,
+).toString();
 
 
 const GiveMarks = () => {
@@ -92,6 +100,7 @@ const GiveMarks = () => {
 
 
       </form>
+      <PdfComponent />
     </div>
   );
 };
