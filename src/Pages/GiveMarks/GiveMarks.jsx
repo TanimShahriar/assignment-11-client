@@ -35,7 +35,7 @@ const GiveMarks = () => {
 
 
     //send data to the server
-    fetch(`http://localhost:5000/report/${_id}`, {
+    fetch(`https://online-group-study-server-khaki.vercel.app/report/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json"

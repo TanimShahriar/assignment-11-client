@@ -15,7 +15,7 @@ function PdfComponent() {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/report")
+    fetch("https://online-group-study-server-khaki.vercel.app/report")
       .then(res => res.json())
       .then(data => setPdfFile(data))
   }, [])

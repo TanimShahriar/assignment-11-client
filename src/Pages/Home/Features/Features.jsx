@@ -13,7 +13,7 @@ const Features = () => {
             <div className="text-black text-center mt-5 max-w-screen-lg">Our  section is a comprehensive overview of the functionalities and tools that make our online study group platform a dynamic and effective learning environment. Explore the various features that empower students to connect, collaborate, and succeed academically.
             </div>
           </div>
-          <div className="grid grid-cols-3 justify-center items-center ">
+          <div className="grid lg:grid-cols-3 justify-center items-center ">
             <div className=" flex flex-col items-center justify-center ">
 
               <div className="bg-gradient-to-t from-[#34e1eb] to-blue-300 border border-gray-200 rounded-xl drop-shadow-md shadow-current p-5 h-auto  hover:shadow-lg hover:transform hover:scale-105 duration-500 ease-in-out  flex items-center justify-center flex-col space-y-2 mt-5  ">

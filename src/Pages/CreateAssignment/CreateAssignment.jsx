@@ -36,7 +36,7 @@ const CreateAssignment = () => {
     console.log(createdAssignment);
 
     //send data to the server
-    fetch("http://localhost:5000/assignment", {
+    fetch("https://online-group-study-server-khaki.vercel.app/assignment", {
       method: "POST",
       headers: {
         "content-type": "application/json"

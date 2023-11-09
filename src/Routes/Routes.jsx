@@ -46,44 +46,44 @@ const router = createBrowserRouter([
       {
         path: "/assignments",
         element: <Assignments></Assignments>,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://online-group-study-server-khaki.vercel.app/assignment")
       },
       {
         path: "/assignments/:_id",
         element: <PrivateRoutes><AssignmentDetails></AssignmentDetails></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://online-group-study-server-khaki.vercel.app/assignment")
       },
       {
         path: "/updateAssignment/:_id",
         element: <UpdateAssignment></UpdateAssignment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params._id}`)
+        loader: ({ params }) => fetch(`https://online-group-study-server-khaki.vercel.app/assignment/${params._id}`)
 
       },
       {
         path: "/takeAssignment/:_id",
         element: <TakeAssignment></TakeAssignment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params._id}`)
+        loader: ({ params }) => fetch(`https://online-group-study-server-khaki.vercel.app/assignment/${params._id}`)
 
       },
       {
         path: "/submittedAssignment",
         element: <PrivateRoutes><SubmittedAssignment></SubmittedAssignment></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/report")
+        loader: () => fetch("https://online-group-study-server-khaki.vercel.app/report")
       },
       {
         path: "/giveMarks/:_id",
         element: <GiveMarks></GiveMarks>,
-        loader: () => fetch("http://localhost:5000/report")
+        loader: () => fetch("https://online-group-study-server-khaki.vercel.app/report")
       },
       {
         path: "/myAssignments",
         element: <PrivateRoutes> <MyAssignments></MyAssignments></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://online-group-study-server-khaki.vercel.app/assignment")
       },
       {
         path: "/pdfComponent",
         element: <PdfComponent></PdfComponent>,
-        // loader: () => fetch("http://localhost:5000/report")
+        // loader: () => fetch("https://online-group-study-server-khaki.vercel.app/report")
       },
 
 

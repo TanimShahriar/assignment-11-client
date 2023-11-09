@@ -85,7 +85,7 @@ const SignIn = () => {
 
     <div className=" rounded-lg p-10">
       <div className="flex  ">
-        <div className="text-center w-1/2">
+        <div className="text-center lg:w-1/2">
           <img className="h-[400px] mt-10" src="https://i.ibb.co/YXCtnwk/Signin-Banner.jpg" alt="" />
         </div>
         <div className="w-1/2 p-4  border rounded-lg bg-base-100">

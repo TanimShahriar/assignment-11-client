@@ -24,7 +24,7 @@ const Assignment = ({ assignment, assign, setAssign }) => {
       }).then((result) => {
         if (result.isConfirmed) {
 
-          fetch(`http://localhost:5000/assignment/${_id}`, {
+          fetch(`https://online-group-study-server-khaki.vercel.app/assignment/${_id}`, {
             method: "DELETE"
           })
             .then(res => res.json())

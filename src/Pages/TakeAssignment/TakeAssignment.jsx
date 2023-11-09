@@ -31,7 +31,7 @@ const TakeAssignment = () => {
 
 
 
-    fetch("http://localhost:5000/report", {
+    fetch("https://online-group-study-server-khaki.vercel.app/report", {
       method: "POST",
       headers: {
         "content-type": "application/json"

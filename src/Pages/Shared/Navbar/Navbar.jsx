@@ -46,7 +46,7 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <NavLink to="/"><img className="h-10 lg:h-24 w-28" src="https://i.ibb.co/kSyxD6z/final-study-group.jpg" alt="" /></NavLink>
+        <NavLink to="/"><img className="h-10 lg:h-24 w-12 lg:w-28" src="https://i.ibb.co/kSyxD6z/final-study-group.jpg" alt="" /></NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -57,7 +57,7 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
 
 
-        <input className="bg-slate-100 p-2 rounded-md" placeholder="Search" type="search" name="" id="" />
+        <input className="bg-slate-100 p-2 rounded-md w-20 lg:w-48" placeholder="Search" type="search" name="" id="" />
 
         {
           user && <div className="dropdown  dropdown-end items-center gap-2 px-1  cursor-pointer rounded-md">
