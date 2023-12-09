@@ -1,4 +1,4 @@
-## project: Online Study Group
+## Project: Online Study Group
 #### Live link: https://cosmic-snickerdoodle-aa6813.netlify.app/
 
 ### Project features:
